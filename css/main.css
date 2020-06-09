@@ -59,20 +59,37 @@
       right: 0;
       width: 100%;
       height: 100%;
-      background-blend-mode: multiply;
+      background: url(../img/bone_black.png);
+      background-size: 50px;
       z-index: -1; }
     .menu-branding.show {
       transform: translate3d(0, 0, 0); }
-    .menu-branding .portrait {
-      width: 300px;
-      height: 300px;
-      background: url("../img/jacob.jpg");
-      background-size: cover;
-      background-position: center, center;
-      border-radius: 50%;
-      border: solid 3px #1b1b1b; }
+    .menu-branding .portrait-container {
+      display: inline-flex;
+      width: 100%;
+      text-align: center;
+      justify-content: center; }
+      .menu-branding .portrait-container .portrait {
+        width: 300px;
+        height: 300px;
+        display: inline-block;
+        background: url("../img/jacob.jpg");
+        background-size: cover;
+        background-position: center, center;
+        border-radius: 50%;
+        border: solid 3px #1b1b1b;
+        transition: 0.5s;
+        transition-timing-function: ease-out;
+        display: inline-block;
+        flex-direction: column; }
+        .menu-branding .portrait-container .portrait:hover {
+          color: #fad94a;
+          transform: scale(1.1);
+          border-color: white;
+          transition: all 0.5s ease-out; }
     .menu-branding .brand-header {
       position: relative;
+      text-shadow: 0px 0px 10px #0000003f;
       margin-top: -6rem;
       margin-bottom: 2rem; }
   .menu .nav-item {
