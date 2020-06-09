@@ -52,6 +52,15 @@
     background: #fad94a;
     transition: all 0.5s ease-out;
     transform: translate3d(0, 100%, 0); }
+    .menu-branding:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-blend-mode: multiply;
+      z-index: -1; }
     .menu-branding.show {
       transform: translate3d(0, 0, 0); }
     .menu-branding .portrait {
@@ -132,7 +141,18 @@ body {
     -webkit-box-shadow: inset 0px 0px 0px 35px #1b1b1b;
     -moz-box-shadow: inset 0px 0px 0px 35px #1b1b1b;
     box-shadow: inset 0px 0px 0px 35px #1b1b1b;
-    min-height: calc(100vh - 160px); }
+    min-height: calc(100vh - 160px);
+    -webkit-animation: fadeIn 4s;
+    animation: fadeIn 4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    overflow: hidden; }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1; } }
     body#bg-img:after {
       content: "";
       position: absolute;
@@ -140,7 +160,7 @@ body {
       right: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(#1b1b1b, rgba(4, 58, 80, 0)), rgba(27, 27, 27, 0.2);
+      background: radial-gradient(#1b1b1b, rgba(4, 58, 80, 0)), rgba(27, 27, 27, 0.3);
       z-index: -1; }
 
 h1,
@@ -179,6 +199,28 @@ header {
   font-size: 2.5rem;
   text-transform: uppercase; }
 
+.zooming-image {
+  height: 100%;
+  background-attachment: fixed;
+  background-image: radial-gradient(rgba(53, 53, 53, 0), rgba(8, 13, 15, 0.678)), url(../img/DD5.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-animation: bummer 2s;
+  animation: bummer 2s;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  overflow: hidden; }
+
+@keyframes bummer {
+  0% {
+    opacity: 0; }
+  100% {
+    transform: scale(1.1, 1.1);
+    opacity: 1; } }
+
 main {
   padding: 4rem;
   min-height: calc(100vh - 60px); }
@@ -213,24 +255,11 @@ main {
   main#home {
     overflow: hidden;
     height: 100vh;
-    background-image: radial-gradient(rgba(53, 53, 53, 0.1), rgba(8, 13, 15, 0.678)), url(../img/DD3.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-animation: bummer 2s;
-    animation: bummer 2s;
-    -webkit-transform: scale(0.95, 0.95);
-    transform: scale(0.95, 0.95);
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-    overflow: hidden; }
-
-@keyframes bummer {
-  100% {
-    transform: scale(1, 1); } }
+    padding: 0rem; }
     main#home h1 {
       margin-top: 40vh;
-      font-weight: 200; }
+      font-weight: 200;
+      z-index: 99; }
   main .rule-secondary {
     background: #fad94a;
     height: 5px;
@@ -244,7 +273,25 @@ main {
   margin-bottom: 5px;
   z-index: 10; }
 
+.home-content {
+  overflow: hidden;
+  padding: 4rem;
+  position: absolute;
+  top: 0; }
+  .home-content h1 {
+    margin-top: 40vh;
+    font-weight: 200;
+    z-index: 99; }
+
+.rule-secondary {
+  background: #fad94a;
+  height: 5px;
+  width: 11.5em;
+  margin-bottom: 5px; }
+
 .about-info {
+  max-width: 1200px;
+  margin: auto;
   display: grid;
   grid-gap: 30px;
   grid-template-areas: "bioimage bio bio" "job1 job2 job3";
@@ -354,6 +401,10 @@ main {
   main {
     align-items: center;
     text-align: center; }
+    main .home-content {
+      width: 100%;
+      text-align: center;
+      align-items: center; }
     main .lg-heading {
       line-height: 1;
       margin-bottom: 1rem;
@@ -397,7 +448,7 @@ main {
 
 @media screen and (max-width: 500px) {
   main#home h1 {
-    margin-top: 10vh; }
+    margin-top: 35vh; }
   .lg-heading {
     line-height: 1;
     margin-bottom: 1rem;
