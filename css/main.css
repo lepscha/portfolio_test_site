@@ -337,6 +337,8 @@ main {
     background: #1b1b1b; }
   100% {
     background: white; } }
+  #about a {
+    color: #1b1b1b; }
 
 .about-info {
   max-width: 900px;
